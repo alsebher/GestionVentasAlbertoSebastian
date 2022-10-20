@@ -73,7 +73,8 @@ public class Archivos {
         } catch (FileNotFoundException ex) {
             ex.printStackTrace(System.out);
         } catch (IOException ex){
-            ex.printStackTrace(System.out);
+            System.out.println("");
+            System.out.println("\tFIN DEL ARCHIVO");
         } 
     }
     

@@ -75,6 +75,8 @@ public class VentasTest {
 		System.out.printf("4.- VISUALIZAR COSTE TOTAL DE CADA ORDEN EN CURSO\n");
                 System.out.printf("5.- LIMPIAR PRODUCTOS\n");
                 System.out.printf("6.- LIMPIAR COLA DE ORDENES EN CURSO\n");
+                System.out.printf("7.- LEER ARCHIVO DE STOCK\n");
+                System.out.printf("8.- LEER ARCHIVO DE ORDENES\n");
 		System.out.printf("0.- SALIR\n");
 		System.out.printf("\n\tSeleccione una de las siguientes opciones: ");
 		opcion = ent.nextInt();
@@ -98,6 +100,14 @@ public class VentasTest {
 				break;
                         case 6:
                                 borrarOrd();
+                                
+				break;
+                        case 7:
+                                Archivos.leerArchivo("stock.txt");
+                                
+				break;
+                        case 8:
+                                Archivos.leerArchivo("ordenes.txt");
                                 
 				break;
 			case 0:
@@ -126,6 +136,7 @@ public class VentasTest {
         Producto p = new Producto(nom,pr);
         catalogo.add(p);
         System.out.println("El producto ha sido creado en el catálogo de manera satisfactoria");
+        //en el stock las columnas representan el ID, nombre y precio
         Archivos.agregarArchivo("stock.txt",p.getIdProducto()+"|"+p.getNombre()+"|"+p.getPrecio());
         Archivos.agregarArchivo("stock.txt", "\n");
     }
@@ -141,6 +152,7 @@ public class VentasTest {
             }
             System.out.println("Todos los productos previamente creados han sido añadidos a una nueva orden");
             listOrden.add(o);
+            //en ordenes.txt las columnas separadas por pipes representan el ID de la orden, el total de la orden, el número de productos en la orden y el id de cada producto en la orden en forma de clave ajena
             Archivos.agregarArchivo("ordenes.txt",o.getIdOrden()+"|"+o.calcularTotal()+"|"+catalogo.size()+"|"+productosId()+"\n");
             
             
