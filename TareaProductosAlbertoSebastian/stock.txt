@@ -1,0 +1,5 @@
+1|Mouse|59.95
+2|Keyboard|49.99
+3|Monitor|99.99
+4|Headset|79.99
+5|USB|9.99
